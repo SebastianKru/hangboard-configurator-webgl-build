@@ -1,7 +1,7 @@
 FROM nginx:alpine
 
 WORKDIR /etc/nginx/conf.d
-COPY webgl.conf default.conf
+COPY punkboard_webgl.conf default.conf
 
-WORKDIR /webgl
-COPY webgl/ .
+WORKDIR /punkboard_webgl
+COPY punkboard_webgl/ .

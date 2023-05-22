@@ -1,0 +1,331 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+
+    <!-- site metas -->
+    <title>punkboard</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+   <!-- body -->
+   <body class="main-layout">
+       <!-- loader  -->
+       <div class="loader_bg">
+           <div class="loader"><img src="images/loading.gif" alt="#" /></div>
+       </div>
+       <!-- end loader -->
+       <!-- header -->
+       <header>
+           <!-- header inner -->
+           <div class="header">
+               <div class="container-fluid">
+                   <div class="row">
+                       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                           <div class="full">
+                               <div class="center-desk">
+                                   <div class="logo">
+                                       <a href="index.html"><img src="images/logo.png" alt="#" /></a>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       <!--<div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                       <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                          </button>
+                          <div class="collapse navbar-collapse" id="navbarsExample04">
+                             <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                   <a class="nav-link" href="#services">Services </a>
+                                </li>
+                                <li class="nav-item">
+                                   <a class="nav-link" href="#work"> Our  Work</a>
+                                </li>
+                             </ul>
+                          </div>
+                       </nav>
+                    </div>-->
+                   </div>
+               </div>
+           </div>
+       </header>
+       <!-- end header inner -->
+       <!-- end header -->
+       <!-- banner -->
+       <section class="banner_main">
+           <div class="container-fluid">
+               <div class="row d_flex">
+                   <div class="col-md-7">
+                       <div class="text-bg">
+                           <div class="padding_lert">
+                               <!--<i><img src="images/btn.png" alt="#"/></i>-->
+                               <h1>PUNKBOARD <br>train your way</h1>
+                               <!--<a href="Javascript:void(0)">Read More</a>-->
+                           </div>
+                       </div>
+                   </div>
+                   <div class="col-md-5 bah">
+                       <div class="bann_img">
+                           <figure><img src="images/logoPunkBoard.png" alt="#" /></figure>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </section>
+       <!-- end banner -->
+       <!-- service -->
+       <div id="services" class="service">
+           <div class="container-fluid">
+               <div class="row d_flex">
+                   <div class="col-md-5">
+                       <div class="service_img">
+                           <figure><img src="images/hangboards.png" alt="#" /></figure>
+                       </div>
+                   </div>
+                   <div class="col-md-7">
+                       <div class="titlepage">
+                           <h2>A training experience <br> made for you</h2>
+                           <span>
+                               Configure your own hangboard from scratch with our 3D configurator and our
+                               team will manufacture your custom training tool within a week.
+                               <br>
+                               <br>
+                               Choose one of our three base plates to start the configuration.
+                               decide between our smallest layout "travel" to our gym style training tool "beast".
+                               Add crimps, pockets or slopers to your base on any spot you want.
+                               We offer granite as a stone option for maximum grip for all of our holds.
+                               <br>
+                           </span>
+                           <!--<a class="read_more" href="Javascript:void(0)">Read More</a>-->
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <!-- end service -->
+       <!-- solutions -->
+       <div id="unity-container" class="unity-desktop">
+           <canvas id="unity-canvas"></canvas>
+       </div>
+       <div id="loading-cover" style="display:none;">
+           <div id="unity-loading-bar">
+               <div id="unity-logo"><img src="logo.png"></div>
+               <div id="unity-progress-bar-empty" style="display: none;">
+                   <div id="unity-progress-bar-full"></div>
+               </div>
+               <div class="spinner"></div>
+           </div>
+       </div>
+       <div id="unity-fullscreen-button" style="display: none;"></div>
+       <script>
+           const hideFullScreenButton = "true";
+           const buildUrl = "Build";
+           const loaderUrl = buildUrl + "/HangboardBuild.loader.js";
+           const config = {
+               dataUrl: buildUrl + "/HangboardBuild.data.unityweb",
+               frameworkUrl: buildUrl + "/HangboardBuild.framework.js.unityweb",
+               codeUrl: buildUrl + "/HangboardBuild.wasm.unityweb",
+               streamingAssetsUrl: "StreamingAssets",
+               companyName: "DefaultCompany",
+               productName: "HangboardBuilder",
+               productVersion: "0.1",
+           };
+
+           const container = document.querySelector("#unity-container");
+           const canvas = document.querySelector("#unity-canvas");
+           const loadingCover = document.querySelector("#loading-cover");
+           const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
+           const progressBarFull = document.querySelector("#unity-progress-bar-full");
+           const fullscreenButton = document.querySelector("#unity-fullscreen-button");
+           const spinner = document.querySelector('.spinner');
+
+           const canFullscreen = (function () {
+               for (const key of [
+                   'exitFullscreen',
+                   'webkitExitFullscreen',
+                   'webkitCancelFullScreen',
+                   'mozCancelFullScreen',
+                   'msExitFullscreen',
+               ]) {
+                   if (key in document) {
+                       return true;
+                   }
+               }
+               return false;
+           }());
+
+           if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+               container.className = "unity-mobile";
+               config.devicePixelRatio = 1;
+           }
+           loadingCover.style.display = "";
+
+           const script = document.createElement("script");
+           script.src = loaderUrl;
+           script.onload = () => {
+               createUnityInstance(canvas, config, (progress) => {
+                   spinner.style.display = "none";
+                   progressBarEmpty.style.display = "";
+                   progressBarFull.style.width = `${100 * progress}%`;
+               }).then((unityInstance) => {
+                   loadingCover.style.display = "none";
+                   if (canFullscreen) {
+                       if (!hideFullScreenButton) {
+                           fullscreenButton.style.display = "";
+                       }
+                       fullscreenButton.onclick = () => {
+                           unityInstance.SetFullscreen(1);
+                       };
+                   }
+               }).catch((message) => {
+                   alert(message);
+               });
+           };
+           document.body.appendChild(script);</script>
+
+       <!--<div class="Unity">
+    <canvas id="unity-canvas" width=1500 height=750 style="width: 1500px; height: 750px; background: #000000"></canvas>
+    <script src="Build/HangboardBuild.loader.js"></script>
+    <script>if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            // Mobile device style: fill the whole browser client area with the game canvas:
+            var meta = document.createElement('meta');
+            meta.name = 'viewport';
+            meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+            document.getElementsByTagName('head')[0].appendChild(meta);
+
+            var canvas = document.querySelector("#unity-canvas");
+            canvas.style.width = "100%";
+            canvas.style.height = "100%";
+            canvas.style.position = "fixed";
+
+            document.body.style.textAlign = "left";
+        }
+
+        createUnityInstance(document.querySelector("#unity-canvas"), {
+            dataUrl: "Build/HangboardBuild.data.unityweb",
+            frameworkUrl: "Build/HangboardBuild.framework.js.unityweb",
+            codeUrl: "Build/HangboardBuild.wasm.unityweb",
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "DefaultCompany",
+            productName: "HangboardBuilder",
+            productVersion: "0.1",
+            // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+            // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+        });</script>
+    </div>-->
+       <!-- end solutions -->
+       <!-- work -->
+       <!--<div id="work" class="work">
+       <div class="container">
+          <div class="row">
+             <div class="col-md-12">
+                <div class="titlepage">
+                   <h2>See More Our Work</h2>
+                   <span>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a istribution of letters, content here', making it look like readable English. Many desktop publishing packages </span>
+                </div>
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-md-6">
+                <div class="our_work">
+                   <figure><img src="images/work1.jpg" alt="#"/></figure>
+                </div>
+             </div>
+             <div class="col-md-6">
+                <div class="our_work">
+                   <figure><img src="images/work2.jpg" alt="#"/></figure>
+                </div>
+             </div>
+             <div class="col-md-6">
+                <div class="our_work">
+                   <figure><img src="images/work3.jpg" alt="#"/></figure>
+                </div>
+             </div>
+             <div class="col-md-6">
+                <div class="our_work">
+                   <figure><img src="images/work4.jpg" alt="#"/></figure>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>-->
+       <!-- end work -->
+       <!--  footer -->
+       <footer>
+           <!--<div class="footer">
+           <div class="container">
+              <div class="row">
+                 <div class="col-md-5">
+                    <div class="multipurpose">
+                       <h3>Let’s  <br>Talk <br> Business</h3>
+                    </div>
+                 </div>
+                 <div class="col-md-7 sm_none">
+                    <div class="contac_detel">
+                       <ul>
+                          <li><img src="images/call.png" alt="#"/>+91 1234567890</li>
+                          <li><a href="Javascript:void(0)"> <img src="images/gmail.png" alt="#"/>demo@gmail.com</a></li>
+                       </ul>
+                    </div>
+                 </div>
+                 <div class="col-md-12">
+                    <div class="multipurpose">
+                       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+                    </div>
+                 </div>
+                 <div class="col-md-7 sm_show">
+                    <div class="contac_detel">
+                       <ul>
+                          <li><img src="images/call.png" alt="#"/>+91 1234567890</li>
+                          <li><a href="Javascript:void(0)"> <img src="images/gmail.png" alt="#"/>demo@gmail.com</a></li>
+                       </ul>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <div class="copyright">
+              <div class="container">
+                 <div class="row">
+                    <div class="col-md-12">
+                       <p>Copyright 2020 All Right Reserved By<a href="https://html.design/"> Free Html Templates</a></p>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>-->
+       </footer>
+       <!-- end footer -->
+       <!-- Javascript files-->
+       <script src="js/jquery.min.js"></script>
+       <script src="js/bootstrap.bundle.min.js"></script>
+       <script src="js/jquery-3.0.0.min.js"></script>
+       <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+       <script src="js/custom.js"></script>
+   </body>
+</html>
